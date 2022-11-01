@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
-
 namespace infoApi.Models
 {
-  public class Contact
+  public class AddContactRequest
   {
-    public Guid Id { get; set; }
+    public AddContactRequest()
+    {
+    }
     public string FullName { get; set; }
     public string Email { get; set; }
     public long Phone { get; set; }

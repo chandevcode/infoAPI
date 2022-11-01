@@ -1,5 +1,10 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using infoApi.Data;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+
+//connect to database
+builder.Services.AddDbContext<ContactsApiDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ContactDb")));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -12,8 +17,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
